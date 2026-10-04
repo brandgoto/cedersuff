@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
+  /* shadcn/ui tokens mapped to CEDERSUFF brand colours (HSL channels) */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 240 33% 98%;        /* #F8F8FC surface */
+    --foreground: 240 20% 5%;         /* #0A0A0F ink */
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 5%;
+    --primary: 242 42% 30%;           /* #2D2B6B navy */
+    --primary-foreground: 240 33% 98%;
+    --secondary: 240 20% 94%;
+    --secondary-foreground: 242 42% 30%;
+    --muted: 240 20% 94%;
+    --muted-foreground: 240 8% 40%;
+    --accent: 165 60% 53%;            /* #3ECFAA teal */
+    --accent-foreground: 240 20% 5%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 16% 88%;
+    --input: 240 16% 88%;
+    --ring: 165 60% 53%;
+    --radius: 0.75rem;
+  }
+
+  /* Dark sections: wrap in .dark */
+  .dark {
+    --background: 240 20% 5%;         /* #0A0A0F */
+    --foreground: 240 33% 98%;
+    --card: 240 16% 9%;
+    --card-foreground: 240 33% 98%;
+    --popover: 240 16% 9%;
+    --popover-foreground: 240 33% 98%;
+    --primary: 165 60% 53%;
+    --primary-foreground: 240 20% 5%;
+    --secondary: 242 42% 30%;
+    --secondary-foreground: 240 33% 98%;
+    --muted: 240 12% 14%;
+    --muted-foreground: 240 8% 68%;
+    --accent: 165 60% 53%;
+    --accent-foreground: 240 20% 5%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 12% 18%;
+    --input: 240 12% 18%;
+    --ring: 165 60% 53%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Lenis smooth scroll (see components/motion/smooth-scroll.tsx) */
+html.lenis,
+html.lenis body {
+  height: auto;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
