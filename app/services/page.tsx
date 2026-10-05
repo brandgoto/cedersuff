@@ -32,7 +32,7 @@ const pricingSteps = [
 ];
 
 const trust: Feature[] = [
-  { icon: "shield", title: "Licensed & Insured", body: "Your move is handled by licensed, insured moving professionals." },
+  { icon: "shieldCheck", title: "Licensed & Insured", body: "Your move is handled by licensed, insured moving professionals." },
   { icon: "scale", title: "Price Match Guarantee", body: "Show us a comparable written quote and we'll match it." },
   { icon: "box", title: "4 Weeks Free Storage", body: "Included with every move, for when your dates don't line up." },
   { icon: "clock", title: "Available Mon–Sun 7am–10pm", body: "Evenings and weekends included, so you can move when it suits you." },

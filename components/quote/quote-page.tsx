@@ -1,4 +1,4 @@
-import { Clock, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, MapPin, MessageCircle, Phone } from "@/components/icons";
 
 import { QuoteForm } from "@/components/quote/quote-form";
 import type { LeadSource } from "@/lib/quote";

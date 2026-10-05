@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 
 import { FadeUp, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { BookingCard } from "@/components/sections/booking-card";

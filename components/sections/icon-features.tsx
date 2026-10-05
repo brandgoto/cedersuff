@@ -22,14 +22,9 @@ export function IconFeatures({
     <Stagger as="ul" className={cn("grid gap-x-8 gap-y-12", cols, className)}>
       {features.map((f) => (
         <StaggerItem as="li" key={f.title} className="group">
-          <span
-            className={cn(
-              "inline-flex items-center justify-center transition-transform duration-300 motion-safe:group-hover:-translate-y-1",
-              size === "xl" ? "h-28 w-28" : cn("h-16 w-16 rounded-2xl", dark ? "bg-white/5" : "bg-brand-teal/10")
-            )}
-          >
-            <LineIcon name={f.icon} className={size === "xl" ? "h-24 w-24" : "h-9 w-9"} strokeWidth={size === "xl" ? 2 : 2.5} />
-          </span>
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl bg-brand-teal/10 transition-transform duration-300 motion-safe:group-hover:-translate-y-1">
+            <LineIcon name={f.icon} size={36} />
+          </div>
           <h3
             className={cn(
               "font-heading font-semibold leading-tight",

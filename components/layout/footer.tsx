@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "@/components/icons";
 
 import { NewsletterForm } from "@/components/layout/newsletter-form";
 import { legalNav, quoteHref, siteConfig, socialLinks } from "@/lib/site";

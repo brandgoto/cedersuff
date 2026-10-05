@@ -9,7 +9,7 @@ const features: Feature[] = [
     body: "Your price is confirmed before we book. It only changes if the scope of your job changes.",
   },
   {
-    icon: "shield",
+    icon: "shieldCheck",
     title: "Vetted Moving Teams",
     body: "Every team we send is experienced, insured, and held to our service standard. Your belongings are in good hands.",
   },

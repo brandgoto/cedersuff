@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "@/components/icons";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

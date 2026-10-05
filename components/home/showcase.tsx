@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 
 import { useReducedMotionSafe } from "@/components/motion/use-reduced-motion-safe";
 import { FadeUp } from "@/components/motion/reveal";

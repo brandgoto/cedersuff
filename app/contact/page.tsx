@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Clock, Mail, MessageCircle, Phone } from "lucide-react";
+import { Clock, Mail, MessageCircle, Phone } from "@/components/icons";
 
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactHero } from "@/components/contact/contact-hero";

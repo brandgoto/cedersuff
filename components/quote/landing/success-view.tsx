@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle } from "@/components/icons";
 
 import { SuccessCheck } from "@/components/quote/landing/icons";
 import { whatsappHref } from "@/lib/site";

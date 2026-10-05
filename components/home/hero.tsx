@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion";
-import { ArrowRight, CalendarCheck, ChevronDown } from "lucide-react";
+import { ArrowRight, CalendarCheck, ChevronDown } from "@/components/icons";
 
 import { Marquee } from "@/components/home/marquee";
 import { collaterals } from "@/lib/collaterals";

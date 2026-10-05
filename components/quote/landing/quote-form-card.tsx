@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Loader2, MessageCircle, Phone } from "lucide-react";
+import { Loader2, MessageCircle, Phone } from "@/components/icons";
 
 import { LearnMoreLinks } from "@/components/quote/landing/learn-more-links";
 import { useEntrance } from "@/components/quote/landing/use-entrance";

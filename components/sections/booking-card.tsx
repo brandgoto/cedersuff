@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Building2, ClipboardList, Receipt, Repeat } from "lucide-react";
+import { Building2, ClipboardList, Receipt, Repeat } from "@/components/icons";
 
 import { cn } from "@/lib/utils";
 

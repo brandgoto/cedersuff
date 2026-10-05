@@ -1,57 +1,157 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-/** 48×48 stroke icons. Each string is one path, drawn in sequence when it scrolls into view. */
+/*
+ * Feature icons (About, Why CEDERSUFF, Services trust row, Cleaning audiences).
+ * Static, complete SVGs — no stroke-drawing animation, so an icon can never be caught half-drawn.
+ * Explicit 36×36 size, viewBox 0 0 24 24, display:block + flexShrink:0.
+ */
 const icons = {
-  tag: ["M6 24 24 6h16a2 2 0 0 1 2 2v16L24 42a2 2 0 0 1-2.8 0L6 26.8a2 2 0 0 1 0-2.8Z", "M31 17a2 2 0 1 0 4 0a2 2 0 1 0-4 0"],
-  shield: ["M24 5 8 11v11c0 10 7 18 16 21 9-3 16-11 16-21V11L24 5Z", "m17 24 5 5 9-10"],
-  rings: ["M4 24a12 12 0 1 0 24 0a12 12 0 1 0-24 0", "M20 24a12 12 0 1 0 24 0a12 12 0 1 0-24 0"],
-  scale: ["M24 8v32", "M14 40h20", "M8 14h32", "M8 14 3 26a5 5 0 0 0 10 0L8 14Z", "M40 14l-5 12a5 5 0 0 0 10 0l-5-12Z"],
-  box: ["M8 16 24 8l16 8v16l-16 8-16-8V16Z", "m8 16 16 8 16-8", "M24 24v16"],
-  clock: ["M6 24a18 18 0 1 0 36 0a18 18 0 1 0-36 0", "M24 14v10l7 4"],
-  team: ["M11 16a6 6 0 1 0 12 0a6 6 0 1 0-12 0", "M5 38c0-7 5-11 12-11s12 4 12 11", "M31 12a5 5 0 1 1 0 10", "M35 27c5 1 8 5 8 11"],
-  receipt: ["M12 6h24v36l-4-3-4 3-4-3-4 3-4-3-4 3V6Z", "m18 22 4 4 8-8"],
-  phone: ["M15 6h18a3 3 0 0 1 3 3v30a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3Z", "M21 36h6"],
-  calendar: ["M8 12h32v28H8z", "M8 20h32", "M16 6v10", "M32 6v10", "m18 30 4 4 8-8"],
-  eye: ["M4 24s7-12 20-12 20 12 20 12-7 12-20 12S4 24 4 24Z", "M18 24a6 6 0 1 0 12 0a6 6 0 1 0-12 0"],
-  heart: ["M24 40S6 29 6 17a9 9 0 0 1 18-3 9 9 0 0 1 18 3c0 12-18 23-18 23Z"],
-  building: ["M8 42V8h20v34", "M28 18h12v24", "M4 42h40", "M14 15h2M20 15h2M14 22h2M20 22h2M14 29h2M20 29h2", "M34 26h0M34 33h0"],
-  steeple: ["M24 4v8", "M21 7h6", "M14 22 24 12l10 10v20H14V22Z", "M8 42h32", "M21 42v-8a3 3 0 0 1 6 0v8"],
-  warehouse: ["M4 18 24 8l20 10v24H4V18Z", "M12 42V26h24v16", "M12 32h24", "M12 37h24"],
-  store: ["M6 18 9 8h30l3 10", "M6 18a6 6 0 0 0 12 0 6 6 0 0 0 12 0 6 6 0 0 0 12 0", "M9 24v18h30V24", "M20 42V32h8v10"],
-  keys: ["M10 30a8 8 0 1 0 16 0a8 8 0 1 0-16 0", "m23 24 15-15", "m33 14 5 5", "m29 18 4 4"],
-} as const;
+  // Reliability / Licensed & Insured / Vetted teams
+  shieldCheck: (
+    <>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <polyline points="9 12 11 14 15 10" />
+    </>
+  ),
+  // Transparency
+  eye: (
+    <>
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  // Care
+  heart: (
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+  ),
+  // The right team for every job
+  team: (
+    <>
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </>
+  ),
+  // Your price, confirmed first
+  dollar: (
+    <>
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </>
+  ),
+  // One point of contact
+  phone: (
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+  ),
+  // Flat-rate pricing
+  tag: (
+    <>
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+      <line x1="7" y1="7" x2="7.01" y2="7" />
+    </>
+  ),
+  // One team, two services
+  rings: (
+    <>
+      <circle cx="9" cy="12" r="6" />
+      <circle cx="15" cy="12" r="6" />
+    </>
+  ),
+  // Price match
+  scale: (
+    <>
+      <line x1="12" y1="3" x2="12" y2="21" />
+      <line x1="7" y1="21" x2="17" y2="21" />
+      <line x1="3" y1="7" x2="21" y2="7" />
+      <path d="M6 7l-3 7a3 3 0 0 0 6 0z" />
+      <path d="M18 7l-3 7a3 3 0 0 0 6 0z" />
+    </>
+  ),
+  // Storage
+  box: (
+    <>
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+      <line x1="12" y1="22.08" x2="12" y2="12" />
+    </>
+  ),
+  // Hours
+  clock: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </>
+  ),
+  // Cleaning audiences
+  building: (
+    <>
+      <rect x="4" y="2" width="16" height="20" rx="1" />
+      <path d="M9 22v-4h6v4" />
+      <path d="M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01" />
+    </>
+  ),
+  steeple: (
+    <>
+      <line x1="12" y1="2" x2="12" y2="6" />
+      <line x1="10" y1="4" x2="14" y2="4" />
+      <path d="M6 22V11l6-5 6 5v11" />
+      <line x1="3" y1="22" x2="21" y2="22" />
+      <path d="M10 22v-4a2 2 0 0 1 4 0v4" />
+    </>
+  ),
+  warehouse: (
+    <>
+      <path d="M2 21V8l10-5 10 5v13" />
+      <path d="M6 21v-9h12v9" />
+      <line x1="6" y1="15" x2="18" y2="15" />
+      <line x1="6" y1="18" x2="18" y2="18" />
+    </>
+  ),
+  store: (
+    <>
+      <path d="M3 9l1.5-5h15L21 9" />
+      <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0" />
+      <path d="M5 12v9h14v-9" />
+      <path d="M10 21v-5h4v5" />
+    </>
+  ),
+  keys: (
+    <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+  ),
+} satisfies Record<string, ReactNode>;
 
 export type IconName = keyof typeof icons;
 
-export function LineIcon({ name, className, strokeWidth = 2.5 }: { name: IconName; className?: string; strokeWidth?: number }) {
-  const reduce = useReducedMotion();
-  const paths = icons[name];
+export function LineIcon({
+  name,
+  size = 36,
+  strokeWidth = 1.5,
+  className,
+}: {
+  name: IconName;
+  size?: number;
+  strokeWidth?: number;
+  className?: string;
+}) {
   return (
     <svg
-      viewBox="0 0 48 48"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      style={{ display: "block", flexShrink: 0 }}
       className={cn("text-brand-teal", className)}
-      aria-hidden
     >
-      {paths.map((d, i) => (
-        <motion.path
-          key={i}
-          d={d}
-          initial={{ pathLength: 0.3, opacity: 1 }}
-          {...(reduce
-            ? { animate: { pathLength: 1, opacity: 1 } }
-            : { whileInView: { pathLength: 1, opacity: 1 }, viewport: { once: true, margin: "-60px" } })}
-          transition={reduce ? { duration: 0 } : { duration: 0.9, delay: 0.15 + i * 0.18, ease: "easeInOut" }}
-        />
-      ))}
+      {icons[name]}
     </svg>
   );
 }

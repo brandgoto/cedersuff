@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 
 export function NewsletterForm() {
   const [note, setNote] = useState<string | null>(null);

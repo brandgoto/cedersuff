@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, Check, Phone } from "lucide-react";
+import { ArrowRight, Check, Phone } from "@/components/icons";
 
 import { FadeUp, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 
 import { Subscription } from "@/components/cleaning/subscription";
 import { FadeUp, Stagger, StaggerItem } from "@/components/motion/reveal";
@@ -76,7 +76,7 @@ export default function CleaningPage() {
                   i < 2 ? "md:col-span-3" : "md:col-span-2"
                 )}
               >
-                <LineIcon name={a.icon} className="h-10 w-10" />
+                <LineIcon name={a.icon} size={40} />
                 <h3 className="mt-6 font-heading text-xl font-semibold leading-tight text-brand-navy">{a.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/65">{a.body}</p>
               </StaggerItem>

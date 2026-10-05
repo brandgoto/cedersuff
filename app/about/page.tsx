@@ -20,7 +20,7 @@ const howWeWork: Feature[] = [
     body: "We work with experienced, licensed moving professionals across Ontario. Every team we send is vetted, insured, and briefed on your specific job before they arrive.",
   },
   {
-    icon: "receipt",
+    icon: "dollar",
     title: "Your Price, Confirmed First",
     body: "Your price is confirmed before we book. It only changes if the scope of your job changes.",
   },
@@ -32,7 +32,7 @@ const howWeWork: Feature[] = [
 ];
 
 const values: Feature[] = [
-  { icon: "calendar", title: "Reliability", body: "We show up when we say we will." },
+  { icon: "shieldCheck", title: "Reliability", body: "We show up when we say we will." },
   { icon: "eye", title: "Transparency", body: "Flat-rate quotes, no hidden fees." },
   { icon: "heart", title: "Care", body: "Your belongings treated like our own." },
 ];

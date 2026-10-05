@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type TargetAndTransition } from "framer-motion";
-import { Phone } from "lucide-react";
+import { Phone } from "@/components/icons";
 
 import { ParallaxImage } from "@/components/sections/parallax-image";
 import { collaterals, type Collateral } from "@/lib/collaterals";

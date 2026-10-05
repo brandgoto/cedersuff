@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion, type Variants } from "framer-motion";
-import { Menu, MessageCircle, Phone, X } from "lucide-react";
+import { Menu, MessageCircle, Phone, X } from "@/components/icons";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
