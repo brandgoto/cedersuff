@@ -22,6 +22,7 @@ export function Footer() {
               alt={siteConfig.name}
               width={384}
               height={144}
+              loading="lazy"
               className="h-16 w-auto brightness-0 invert"
             />
           </Link>

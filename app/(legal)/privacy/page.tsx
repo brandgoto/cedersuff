@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { siteConfig } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `How ${siteConfig.name} collects, uses and protects your personal information.`,
-};
+export const metadata: Metadata = pageMetadata({
+  path: "/privacy",
+  title: "Privacy Policy | CEDERSUFF Movers",
+  description:
+    "How CEDERSUFF Movers collects, uses and protects your personal information.",
+});
 
 // TODO: have this reviewed by the business owner / a lawyer before launch. Template only.
 const LAST_UPDATED = "October 1, 2026";

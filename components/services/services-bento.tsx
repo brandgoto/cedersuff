@@ -122,7 +122,7 @@ export function ServicesBento() {
               <p
                 className={cn(
                   "mt-3 leading-relaxed",
-                  s.urgent ? "text-brand-navy/80" : "text-foreground/65",
+                  s.urgent ? "text-brand-navy/90" : "text-foreground/65",
                   s.large && "max-w-lg text-lg"
                 )}
               >

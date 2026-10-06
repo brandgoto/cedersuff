@@ -6,11 +6,14 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { ContactHero } from "@/components/contact/contact-hero";
 import { FadeUp, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { siteConfig, whatsappHref } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Call, email or WhatsApp CEDERSUFF Movers — available Mon–Sun, 7am–10pm across Toronto and London ON.",
-};
+export const metadata: Metadata = pageMetadata({
+  path: "/contact",
+  title: "Contact CEDERSUFF Movers | Get a Free Quote",
+  description:
+    "Get in touch with CEDERSUFF Movers in Toronto and London ON. Call, WhatsApp, or fill in the form. Available Mon–Sun, 7am–10pm.",
+});
 
 const contacts = [
   { Icon: Phone, label: "Phone", value: "(437) 332-0981", href: siteConfig.phoneHref },
@@ -39,6 +42,7 @@ export default function ContactPage() {
                 alt={siteConfig.name}
                 width={384}
                 height={144}
+                loading="lazy"
                 className="-ml-2 h-16 w-auto brightness-0 invert"
               />
               <h2 className="mt-10 font-heading text-[36px] font-semibold leading-tight tracking-[-0.02em]">

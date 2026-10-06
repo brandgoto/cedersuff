@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { CleaningCta } from "@/components/home/cleaning-cta";
 import { Hero } from "@/components/home/hero";
 import { HowItWorks } from "@/components/home/how-it-works";
@@ -8,6 +10,14 @@ import { WhyChoose } from "@/components/home/why-choose";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ServiceAreas } from "@/components/sections/service-areas";
 import { quoteHref, siteConfig } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  path: "/",
+  title: "CEDERSUFF Movers | Moving & Commercial Cleaning in Toronto & London ON",
+  description:
+    "Residential and commercial moving services across Toronto, London ON, and surrounding areas. Flat-rate pricing, vetted teams, and commercial cleaning contracts. Get a free quote today.",
+});
 
 // Tone rhythm: photo/navy → surface → navy → white → ink → surface → navy → video/navy → teal
 export default function HomePage() {

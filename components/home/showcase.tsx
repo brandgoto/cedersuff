@@ -50,6 +50,7 @@ function GalleryImage({ index, className }: { index: number; className?: string 
         alt={img.alt}
         width={img.width}
         height={img.height}
+        loading="lazy"
         sizes="(min-width: 1024px) 860px, 100vw"
         className="h-full w-full object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.02]"
       />

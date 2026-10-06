@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
+import { trackLead } from "@/lib/analytics";
 import { serviceOptions, type ServiceValue } from "@/lib/quote";
 import { ctaLabels, siteConfig, whatsappHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -110,6 +111,7 @@ export function QuoteFormCard({ onSuccess }: { onSuccess: () => void }) {
       });
       const json = await res.json().catch(() => ({}));
       if (res.ok) {
+        trackLead();
         onSuccess();
         return;
       }

@@ -9,12 +9,14 @@ import { ServiceAreas } from "@/components/sections/service-areas";
 import { ServicesBento } from "@/components/services/services-bento";
 import { collaterals } from "@/lib/collaterals";
 import { quoteHref } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Moving Services",
+export const metadata: Metadata = pageMetadata({
+  path: "/services",
+  title: "Moving Services in Toronto & London ON | CEDERSUFF Movers",
   description:
-    "Residential, commercial, long-distance and same-day moving across Toronto, London ON and Ontario. Flat-rate pricing confirmed before we arrive.",
-};
+    "Residential, commercial, long-distance, same-day moving, packing, and storage. Flat-rate moving services across Toronto, London ON, Etobicoke, Scarborough, Mississauga, Brampton, and Vaughan.",
+});
 
 const pricingSteps = [
   {

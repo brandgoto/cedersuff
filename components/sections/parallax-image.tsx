@@ -38,6 +38,7 @@ export function ParallaxImage({
           alt={image.alt}
           fill
           priority={priority}
+          loading={priority ? undefined : "lazy"}
           sizes={sizes}
           className="object-cover"
           style={{ objectPosition: position ?? image.focus }}

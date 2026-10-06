@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { siteConfig } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: `Terms that apply to ${siteConfig.name} moving and commercial cleaning services and this website.`,
-};
+export const metadata: Metadata = pageMetadata({
+  path: "/terms",
+  title: "Terms of Service | CEDERSUFF Movers",
+  description:
+    "Terms that apply to CEDERSUFF Movers moving and commercial cleaning services and this website.",
+});
 
 // TODO: have this reviewed by the business owner / a lawyer before launch. Template only.
 const LAST_UPDATED = "October 1, 2026";

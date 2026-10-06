@@ -6,12 +6,15 @@ import { CtaBand } from "@/components/sections/cta-band";
 import { IconFeatures, type Feature } from "@/components/sections/icon-features";
 import { ServiceAreas } from "@/components/sections/service-areas";
 import { quoteHref } from "@/lib/site";
+import { ogImages, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  path: "/about",
+  title: "About CEDERSUFF Movers | Toronto & London ON",
   description:
-    "CEDERSUFF is a Toronto-based moving and commercial cleaning company serving Ontario households and businesses.",
-};
+    "Toronto-based moving and commercial cleaning company serving Ontario households and businesses. Vetted teams, flat-rate pricing, and one point of contact on every job.",
+  image: ogImages.team,
+});
 
 const howWeWork: Feature[] = [
   {

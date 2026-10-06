@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { NativeSelect } from "@/components/ui/native-select";
 import { Textarea } from "@/components/ui/textarea";
+import { trackLead } from "@/lib/analytics";
 import { serviceOptions } from "@/lib/quote";
 import { siteConfig } from "@/lib/site";
 
@@ -38,6 +39,7 @@ export function ContactForm() {
         setFieldErrors(json.fields ?? {});
         throw new Error(json.error ?? "Something went wrong.");
       }
+      trackLead();
       setStatus("success");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");

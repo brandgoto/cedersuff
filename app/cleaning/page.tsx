@@ -11,12 +11,15 @@ import { Button } from "@/components/ui/button";
 import { collaterals } from "@/lib/collaterals";
 import { ctaLabels, quoteHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import { ogImages, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Commercial Cleaning",
+export const metadata: Metadata = pageMetadata({
+  path: "/cleaning",
+  title: "Commercial Cleaning Services Ontario | CEDERSUFF Movers",
   description:
-    "Monthly commercial cleaning contracts for offices, churches, retail spaces and warehouses across Toronto, London ON and Ontario.",
-};
+    "Monthly commercial cleaning contracts for offices, churches, warehouses, and retail spaces across Toronto and London ON. Consistent team, flexible scheduling, one monthly invoice.",
+  image: ogImages.cleaning,
+});
 
 const siteVisitHref = `${quoteHref}?service=commercial-cleaning`;
 
@@ -88,12 +91,12 @@ export default function CleaningPage() {
       <Subscription />
 
       <section className="bg-brand-teal">
-        <FadeUp className="container flex flex-col items-start justify-between gap-8 py-16 text-white md:flex-row md:items-center lg:py-20">
+        <FadeUp className="container flex flex-col items-start justify-between gap-8 py-16 text-brand-navy md:flex-row md:items-center lg:py-20">
           <div className="max-w-2xl">
             <h2 className="font-heading text-[clamp(2rem,3.5vw,2.5rem)] font-semibold leading-tight tracking-[-0.02em]">
               Booking a Move? Add Cleaning for 20% Off.
             </h2>
-            <p className="mt-3 text-lg text-white/90">
+            <p className="mt-3 text-lg text-brand-navy/90">
               Bundle a professional clean of your old or new space when you book any move with us.
             </p>
           </div>

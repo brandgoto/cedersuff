@@ -87,16 +87,16 @@ export function Packages() {
             <h3 className="mt-5 font-heading text-4xl font-semibold tracking-[-0.02em]">Move + Deep Clean</h3>
             <dl className="mt-5 space-y-3">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-navy/70">Studio / 1 bed</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-navy/90">Studio / 1 bed</dt>
                 <dd className="font-heading text-[28px] font-semibold leading-tight">From $799</dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-navy/70">2 bedroom</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-brand-navy/90">2 bedroom</dt>
                 <dd className="font-heading text-[28px] font-semibold leading-tight">From $1,000</dd>
               </div>
             </dl>
-            <p className="mt-3 text-sm font-medium text-brand-navy/80">Includes move-out clean · $150/hr extra time</p>
-            <p className="mt-5 text-brand-navy/80">
+            <p className="mt-3 text-sm font-medium text-brand-navy/90">Includes move-out clean · $150/hr extra time</p>
+            <p className="mt-5 text-brand-navy/90">
               Everything in Basic Move, plus a professional deep clean of your old or new space. One booking, one
               team.
             </p>

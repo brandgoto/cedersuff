@@ -49,7 +49,10 @@ function Card({ service }: { service: Service }) {
       )}
     >
       <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-teal">{service.eyebrow}</p>
+        {/* Brand teal fails contrast on white — darker teal (#17735c) on the light card */}
+        <p className={cn("text-xs font-semibold uppercase tracking-[0.25em]", dark ? "text-brand-teal" : "text-[#17735c]")}>
+          {service.eyebrow}
+        </p>
         <MaskedLines
           lines={service.title}
           className="mt-5 font-heading text-[clamp(2.5rem,4.5vw,3.75rem)] font-semibold leading-[1.02] tracking-[-0.03em]"
@@ -74,6 +77,7 @@ function Card({ service }: { service: Service }) {
           src={service.image.src}
           alt={service.image.alt}
           fill
+          loading="lazy"
           sizes="(min-width: 768px) 50vw, 100vw"
           className="object-cover"
           style={{ objectPosition: "top center" }}
