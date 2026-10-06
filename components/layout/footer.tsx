@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Mail, MapPin, Phone } from "@/components/icons";
+import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Tiktok } from "@/components/icons";
 
 import { NewsletterForm } from "@/components/layout/newsletter-form";
 import { legalNav, quoteHref, siteConfig, socialLinks } from "@/lib/site";
+
+const socialIcons = { Instagram, Facebook, TikTok: Tiktok, LinkedIn: Linkedin };
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -25,17 +27,25 @@ export function Footer() {
           </Link>
           <p className="max-w-xs text-sm leading-relaxed text-white/70">{siteConfig.tagline}</p>
           <NewsletterForm />
-          {socialLinks.length > 0 && (
-            <ul className="flex gap-4 text-sm">
-              {socialLinks.map((s) => (
+          <ul className="flex gap-2" aria-label="Follow us">
+            {socialLinks.map((s) => {
+              const Icon = socialIcons[s.label];
+              return (
                 <li key={s.href}>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white">
-                    {s.label}
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${s.label} — ${s.handle}`}
+                    title={`${s.label} — ${s.handle}`}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-brand-teal hover:text-brand-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+                  >
+                    <Icon className="h-[18px] w-[18px]" />
                   </a>
                 </li>
-              ))}
-            </ul>
-          )}
+              );
+            })}
+          </ul>
         </div>
 
         <div className="md:justify-self-center">

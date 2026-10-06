@@ -51,10 +51,12 @@ export const legalNav = [
   { label: "Terms of Service", href: "/terms" },
 ] as const;
 
-export const socialLinks: { label: string; href: string }[] = [
-  // TODO: add LinkedIn once the CEDERSUFF company page is created
-  // { label: "LinkedIn", href: "https://www.linkedin.com/company/cedersuff" },
-];
+export const socialLinks = [
+  { label: "Instagram", handle: "@cedersuff_movers_", href: "https://www.instagram.com/cedersuff_movers_/" },
+  { label: "Facebook", handle: "Cedersuffmovers", href: "https://www.facebook.com/profile.php?id=61579419105908" },
+  { label: "TikTok", handle: "@cedersuff_movers", href: "https://www.tiktok.com/@cedersuff_movers" },
+  { label: "LinkedIn", handle: "Cedersuff Movers", href: "https://www.linkedin.com/in/cedersuff-movers-145195381" },
+] as const;
 
 /**
  * Flat colour overlays for photos/video (no gradients). Brand navy #2D2B6B = rgb(45, 43, 107).

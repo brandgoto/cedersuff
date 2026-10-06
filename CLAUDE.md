@@ -7,7 +7,7 @@ Business details, nav, hours and CTA labels live in `lib/site.ts` — use them i
 - Never say "crew" (in any phrasing), "our drivers", "our staff". Use "our team" or "vetted moving professionals we work with".
 - Never mention the subcontracting model or markup. Every job is presented as a CEDERSUFF job.
 - "24/7" must never appear. Use "Available Mon–Sun, 7am–10pm" or "Available 7 days a week" (`siteConfig.hours`).
-- LinkedIn social link stays commented out until the company page exists (TODO in `lib/site.ts`).
+- Social links (Instagram, Facebook, TikTok, LinkedIn) live in `socialLinks` in `lib/site.ts`.
 - Footer newsletter input is not wired yet — Phase B: Brevo integration (TODO in `components/layout/newsletter-form.tsx`).
 - Commercial cleaning primary CTA is "Book a Free Site Visit" (`ctaLabels.cleaning`), not "Get a Quote".
 - `/get-a-quote` service dropdown must include "Moving + Cleaning Bundle".
